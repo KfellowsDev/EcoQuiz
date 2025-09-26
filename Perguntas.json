@@ -1,0 +1,149 @@
+[
+  {
+    "tema": "investimentos",
+    "pergunta": "A criação de centros de triagem eletrônica pode:",
+    "alternativas": ["A) Reduzir oportunidades", "B) Gerar empregos e inovação", "C) Aumentar o lixo eletrônico"],
+    "correta": "B",
+    "efeito": { "investimentos": 15, "poluicao": -10, "dinheiro": -10 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "Empresas que promovem descarte consciente ganham:",
+    "alternativas": ["A) Incentivos fiscais", "B) Penalidades ambientais", "C) Rejeição do mercado"],
+    "correta": "A",
+    "efeito": { "investimentos": 10, "poluicao": -5, "dinheiro": 5 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "A coleta seletiva de eletrônicos pode:",
+    "alternativas": ["A) Reduzir valor de mercado", "B) Atrair novos clientes", "C) Ser ignorada"],
+    "correta": "B",
+    "efeito": { "investimentos": 10, "poluicao": -5, "dinheiro": 0 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "Reciclar componentes eletrônicos pode:",
+    "alternativas": ["A) Aumentar custos", "B) Reduzir dependência de matéria-prima", "C) Ser ilegal"],
+    "correta": "B",
+    "efeito": { "investimentos": 15, "poluicao": -5, "dinheiro": 5 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "Empresas que ignoram descarte correto:",
+    "alternativas": ["A) Perdem reputação", "B) Recebem prêmios", "C) Crescem mais rápido"],
+    "correta": "A",
+    "efeito": { "investimentos": -10, "poluicao": 10, "dinheiro": -15 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "A logística reversa é considerada:",
+    "alternativas": ["A) Um desperdício", "B) Uma estratégia sustentável", "C) Um risco financeiro"],
+    "correta": "B",
+    "efeito": { "investimentos": 20, "poluicao": -10, "dinheiro": -10 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "A falta de descarte adequado pode afetar:",
+    "alternativas": ["A) A imagem da empresa", "B) O lucro imediato", "C) A produtividade"],
+    "correta": "A",
+    "efeito": { "investimentos": -15, "poluicao": 10, "dinheiro": -10 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "Investir em educação ambiental sobre eletrônicos pode:",
+    "alternativas": ["A) Reduzir engajamento", "B) Fortalecer a marca", "C) Ser irrelevante"],
+    "correta": "B",
+    "efeito": { "investimentos": 10, "poluicao": -5, "dinheiro": -5 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "A reutilização de peças eletrônicas pode:",
+    "alternativas": ["A) Reduzir custos", "B) Aumentar riscos legais", "C) Ser proibida"],
+    "correta": "A",
+    "efeito": { "investimentos": 10, "poluicao": -5, "dinheiro": 10 }
+  },
+  {
+    "tema": "investimentos",
+    "pergunta": "Empresas que reciclam ganham destaque em:",
+    "alternativas": ["A) Rankings de sustentabilidade", "B) Listas de poluidores", "C) Processos judiciais"],
+    "correta": "A",
+    "efeito": { "investimentos": 15, "poluicao": -10, "dinheiro": 0 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "O descarte incorreto de eletrônicos pode causar:",
+    "alternativas": ["A) Poluição do solo", "B) Crescimento vegetal", "C) Purificação da água"],
+    "correta": "A",
+    "efeito": { "investimentos": -5, "poluicao": 15, "dinheiro": -5 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "Reciclar aparelhos eletrônicos ajuda a:",
+    "alternativas": ["A) Aumentar o lixo", "B) Reduzir a poluição", "C) Poluir rios"],
+    "correta": "B",
+    "efeito": { "investimentos": 5, "poluicao": -10, "dinheiro": -5 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "O mercúrio presente em telas pode:",
+    "alternativas": ["A) Ser reciclado com segurança", "B) Contaminar o ambiente", "C) Ser inofensivo"],
+    "correta": "B",
+    "efeito": { "investimentos": -5, "poluicao": 15, "dinheiro": -10 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "A reciclagem de celulares evita:",
+    "alternativas": ["A) Poluição do ar", "B) Acúmulo de metais tóxicos", "C) Geração de energia"],
+    "correta": "B",
+    "efeito": { "investimentos": 5, "poluicao": -10, "dinheiro": -5 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "O descarte em lixões pode gerar:",
+    "alternativas": ["A) Compostagem", "B) Contaminação", "C) Reciclagem espontânea"],
+    "correta": "B",
+    "efeito": { "investimentos": -10, "poluicao": 15, "dinheiro": -10 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "A coleta seletiva reduz:",
+    "alternativas": ["A) Poluição", "B) Eficiência", "C) Custos"],
+    "correta": "A",
+    "efeito": { "investimentos": 5, "poluicao": -10, "dinheiro": -5 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "O descarte incorreto de televisores pode liberar:",
+    "alternativas": ["A) Gases tóxicos", "B) Água potável", "C) Oxigênio"],
+    "correta": "A",
+    "efeito": { "investimentos": -5, "poluicao": 15, "dinheiro": -10 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "A reciclagem de placas eletrônicas evita:",
+    "alternativas": ["A) Emissão de gases", "B) Contaminação", "C) Poluição sonora"],
+    "correta": "B",
+    "efeito": { "investimentos": 5, "poluicao": -10, "dinheiro": -5 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "O descarte em locais apropriados evita:",
+    "alternativas": ["A) Multas", "B) Poluição", "C) Lucros"],
+    "correta": "B",
+    "efeito": { "investimentos": 5, "poluicao": -10, "dinheiro": -5 }
+  },
+  {
+    "tema": "poluição",
+    "pergunta": "A poluição eletrônica afeta principalmente:",
+    "alternativas": ["A) O clima", "B) O solo e a água", "C) A atmosfera"],
+    "correta": "B",
+    "efeito": { "investimentos": -5, "poluicao": 15, "dinheiro": -5 }
+  },
+  {
+    "tema": "dinheiro",
+    "pergunta": "A venda de eletrônicos usados pode:",
+    "alternativas": ["A) Gerar renda extra", "B) Ser ilegal", "C) Aumentar o lixo eletrônico"],
+    "correta": "A",
+    "efeito": { "investimentos": 5, "poluicao": -5, "dinheiro": 15 }
+  }
+]
