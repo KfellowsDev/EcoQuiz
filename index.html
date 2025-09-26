@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Sustentável</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    header, footer {
+      background-color: #001f3f;
+      padding: 20px;
+    }
+
+    #quiz-container {
+      margin: 30px auto;
+      width: 80%;
+      max-width: 600px;
+      background-color: #001f3f;
+      border: 2px solid white;
+      padding: 20px;
+    }
+
+    #question {
+      font-size: 22px;
+      margin-bottom: 20px;
+      animation: typing 2s steps(40, end) forwards;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid white;
+      width: 0;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .answer-box {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 12px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      width: 80%;
+      max-width: 300px;
+      transition: transform 0.2s;
+    }
+
+    .answer-box:hover {
+      transform: scale(1.05);
+    }
+
+    #score-panel {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    #timer {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    #end-screen {
+      display: none;
+      margin-top: 30px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Quiz Sustentável</h1>
+    <p>Descarte eletrônico com consciência</p>
+  </header>
+
+  <div id="quiz-container">
+    <div id="timer">⏱️ Tempo restante: 120s</div>
+    <div id="question"></div>
+    <div id="answers"></div>
+    <div id="score-panel">
+       Investimentos: <span id="investimentos">0</span> |
+       Poluição: <span id="poluicao">0</span> |
+       Dinheiro: <span id="dinheiro">100</span>
+    </div>
+    <div id="end-screen"></div>
+  </div>
+
+  <footer>
+    &copy; 2025 Five Innovations | Todos os direitos reservados
+  </footer>
+
+  <script>
+    let perguntas = [];
+    let pontuacao = { investimentos: 0, poluicao: 0, dinheiro: 100 };
+    let tempo = 120;
+    let intervalo;
+    let perguntaAtual = 0;
+
+    async function carregarPerguntas() {
+      try {
+        const resposta = await fetch('perguntas.json');
+        const dados = await resposta.json();
+        perguntas = embaralhar(dados).slice(0, 150);
+        iniciarQuiz();
+      } catch (erro) {
+        console.error("Erro ao carregar perguntas:", erro);
+        document.getElementById("question").textContent = "Erro ao carregar o quiz.";
+      }
+    }
+
+    function embaralhar(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    function iniciarQuiz() {
+      intervalo = setInterval(() => {
+        tempo--;
+        document.getElementById("timer").textContent = `⏱️ Tempo restante: ${tempo}s`;
+        if (tempo <= 0 || perguntaAtual >= perguntas.length) {
+          finalizarQuiz();
+        }
+      }, 1000);
+      mostrarPergunta();
+    }
+
+    function mostrarPergunta() {
+      const p = perguntas[perguntaAtual];
+      document.getElementById("question").textContent = p.pergunta;
+      const container = document.getElementById("answers");
+      container.innerHTML = "";
+      p.alternativas.forEach((alt) => {
+        const btn = document.createElement("button");
+        btn.className = "answer-box";
+        btn.textContent = alt;
+        btn.onclick = () => responder(alt[0], p);
+        container.appendChild(btn);
+      });
+    }
+
+    function responder(letra, pergunta) {
+      if (letra === pergunta.correta) {
+        pontuacao.investimentos += pergunta.efeito.investimentos;
+        pontuacao.poluicao += pergunta.efeito.poluicao;
+        pontuacao.dinheiro += pergunta.efeito.dinheiro;
+      } else {
+        pontuacao.investimentos -= 5;
+        pontuacao.poluicao += 5;
+        pontuacao.dinheiro -= 10;
+      }
+      atualizarPontuacao();
+      perguntaAtual++;
+      if (perguntaAtual < perguntas.length) {
+        mostrarPergunta();
+      } else {
+        finalizarQuiz();
+      }
+    }
+
+    function atualizarPontuacao() {
+      document.getElementById("investimentos").textContent = pontuacao.investimentos;
+      document.getElementById("poluicao").textContent = pontuacao.poluicao;
+      document.getElementById("dinheiro").textContent = pontuacao.dinheiro;
+    }
+
+    function finalizarQuiz() {
+      clearInterval(intervalo);
+      document.getElementById("question").style.display = "none";
+      document.getElementById("answers").style.display = "none";
+      const resultado = document.getElementById("end-screen");
+      resultado.style.display = "block";
+
+      let mensagem = " Você é um gestor sustentável!";
+      if (pontuacao.poluicao > 50) mensagem = " Cuidado! Seu impacto ambiental foi alto.";
+      if (pontuacao.dinheiro < 0) mensagem = " Suas decisões custaram caro ao planeta.";
+
+      resultado.innerHTML = `
+        <p>${mensagem}</p>
+        <p> Investimentos: ${pontuacao.investimentos}</p>
+        <p> Poluição: ${pontuacao.poluicao}</p>
+        <p> Dinheiro: ${pontuacao.dinheiro}</p>
+      `;
+    }
+
+    window.onload = carregarPerguntas;
+  </script>
+
+</body>
+</html>
