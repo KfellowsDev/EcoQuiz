@@ -3,10 +3,9 @@ A quiz to raise awareness about the sustainable disposal of electronic devices.
 
 Este projeto é um quiz interativo que educa os usuários sobre práticas responsáveis no descarte de lixo eletrônico. Ele aborda temas como impacto ambiental, oportunidades de investimento e consequências financeiras, promovendo decisões mais conscientes e sustentáveis.
 
- Funcionalidades
+ Funcionalidades:
+ 
  Perguntas temáticas: investimentos, poluição e dinheiro
-
- Timer de 2 minutos por partida
 
  Sistema de pontuação com indicadores ambientais e econômicos
 
