@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage E-Quiz</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    header {
+      background-color: rgba(10, 10, 10, 0.212);
+      padding: 1em 2em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      gap: 2em;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2em;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      text-align: center;
+    }
+
+    .form-box h2 {
+      margin-bottom: 1em;
+      font-size: 2em;
+    }
+
+    .form-box p {
+      font-size: 1em;
+      margin-bottom: 2em;
+      line-height: 1.5;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 0.8em;
+      margin-bottom: 1em;
+      background: linear-gradient(to right, #00ffff, #0077ff);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: blackgroud 0.3s;
+    }
+
+    .form-box button:hover {
+      background: linear-gradient(to right, #00ccff, #0055cc);
+    }
+
+    .ranking {
+      margin-top: 2em;
+      text-align: left;
+    }
+
+    .ranking h3 {
+      margin-bottom: 0.5em;
+      font-size: 1.2em;
+      color: #0ff;
+    }
+
+    .ranking ol {
+      padding-left: 1.2em;
+    }
+
+    .ranking li {
+      margin-bottom: 0.5em;
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em;
+      background-color: rgba(0, 0, 0, 0.363);
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">QUIZ </a></li>
+        <li><a href="#">RESULTADOS</a></li>
+        <li><a href="#">CONTATO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>E-Quiz</h2>
+      <p>Teste seus conhecimentos sobre descarte consciente de lixo eletrônico e os principais componentes de hardware. Aprenda enquanto joga e contribua para um futuro mais sustentável e tecnológico!</p>
+     <button onclick="location.href='../e-quiz/quiz.html'">Iniciar Quiz</button>
+      <button onclick="location.href='resultados.html'">Ver Resultados</button>
+      <div class="ranking">
+        <h3>🏆 Ranking de Pontuação</h3>
+        <ol id="ranking-list"></ol>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Tecty Groupe. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const rankingList = document.getElementById("ranking-list");
+      const ranking = JSON.parse(localStorage.getItem("equizRanking")) || [];
+
+      rankingList.innerHTML = "";
+
+      if (ranking.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "Nenhum jogador ainda.";
+        rankingList.appendChild(li);
+      } else {
+        ranking.forEach((entry, index) => {
+          const li = document.createElement("li");
+          li.textContent = `${index + 1}º - ${entry.name} — ${entry.score} pts`;
+          rankingList.appendChild(li);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

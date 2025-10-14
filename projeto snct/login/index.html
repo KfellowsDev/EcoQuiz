@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>homepag Tetyc</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1em 2em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      gap: 2em;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2em;
+      border-radius: 15px;
+      width: 350px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .input-box {
+      position: relative;
+      margin-bottom: 1.5em;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 0.8em 2.5em 0.8em 2.5em;
+      border: none;
+      border-radius: 8px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    .input-box label {
+      position: absolute;
+      top: 50%;
+      left: 2.5em;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #aaa;
+      transition: 0.3s;
+    }
+
+    .input-box input:focus + label,
+    .input-box input:valid + label {
+      top: 5px;
+      font-size: 0.8em;
+      color: #0ff;
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #0ff;
+      font-size: 1.2em;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9em;
+      margin-bottom: 1em;
+    }
+
+    .options a {
+      color: #00ffff;
+      text-decoration: underline;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .options a:hover {
+      color: #ffffff;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 0.8em;
+      background: linear-gradient(to right, #00ffff, #0077ff);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .form-box button:hover {
+      background: linear-gradient(to right, #00ccff, #0055cc);
+    }
+
+    .switch-link {
+      text-align: center;
+      margin-top: 1em;
+      font-size: 0.9em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2em;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    function showForm(id) {
+      document.getElementById('login').classList.add('hidden');
+      document.getElementById('register').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#" onclick="showForm('login')">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Login Form -->
+    <div id="login" class="form-box">
+      <h2>Login</h2>
+      <form>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+
+        <div class="options">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit">Login</button>
+        <p class="switch-link">Don't have an account? <a href="#" onclick="showForm('register')">Register</a></p>
+      </form>
+    </div>
+
+    <!-- Register Form -->
+    <div id="register" class="form-box hidden">
+      <h2>Register</h2>
+      <form>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="text" required />
+          <label>Username</label>
+        </div>
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+
+        <div class="options">
+          <label><input type="checkbox" required /> I agree to terms & conditions</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit">Register</button>
+        <p class="switch-link">Already have an account? <a href="#" onclick="showForm('login')">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Tetyc Groupe. All rights reserved.</p>
+  </footer>
+</body>
+</html>

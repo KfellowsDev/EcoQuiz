@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+
+  <!-- Estilos principais do quiz -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Estilos do header reutilizado -->
+  <link rel="stylesheet" href="header.css" />
+
+  <style>
+    #description {
+      color: #fff;
+      margin-bottom: 1em;
+    }
+
+    /* Garante que o conteúdo não fique escondido atrás do header fixo */
+    body {
+      padding-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="resultados.html">Ranking</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <p id="description">
+      TESTE SEUS CONHECIMENTOS SOBRE LIXO ELETRÔNICO E COMPONENTES DE HARDWARE.
+      CLIQUE NO BOTÃO ABAIXO PARA COMEÇAR O QUIZ E APRENDER ENQUANTO SE DIVERTE!
+    </p>
+
+    <button id="start-btn">Iniciar Quiz</button>
+
+    <div id="question-container" class="hidden">
+      <h2 id="question-text"></h2>
+      <ul id="choices-list"></ul>
+      <button id="next-btn" class="hidden">Próxima</button>
+    </div>
+
+    <div id="result-container" class="hidden">
+      <p id="score"></p>
+      <button id="restart-btn">Reiniciar</button>
+      <div id="ranking-container" class="hidden">
+        <h3>🏆 Ranking</h3>
+        <ol id="ranking-list"></ol>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Tecty Groupe. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById("start-btn").addEventListener("click", () => {
+      document.getElementById("description").style.display = "none";
+      document.getElementById("question-container").classList.remove("hidden");
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
