@@ -1,0 +1,14 @@
+{
+  "name": "E-Quiz",
+  "version": "1.0.0",
+  "description": "Projeto Quiz Interativo",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "author": "Fellows",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
